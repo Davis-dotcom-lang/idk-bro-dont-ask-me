@@ -1,110 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>for you</title>
+import math
+from turtle import *
 
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  background: #ffd6e0;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
+def heart(k):
+    return 15*math.sin(k)**3
 
-.container {
-  position: absolute;
-  width: 100%;
-  bottom: -100%;
-  text-align: center;
-  animation: scrollUp 25s linear forwards;
-}
+def heart1(k):
+    return 12*math.cos(k)-5*\
+        math.cos(2*k)-2*\
+        math.cos(3*k)-\
+        math.cos(4*k)
 
-p {
-  font-size: 20px;
-  color: #333;
-  margin: 20px;
-}
-
-@keyframes scrollUp {
-  0% { bottom: -100%; }
-  100% { bottom: 100%; }
-}
-
-.heart {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background: pink;
-  transform: rotate(45deg);
-  animation: float 6s infinite;
-}
-
-.heart::before,
-.heart::after {
-  content: '';
-  width: 15px;
-  height: 15px;
-  background: pink;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.heart::before {
-  top: -8px;
-  left: 0;
-}
-
-.heart::after {
-  left: -8px;
-  top: 0;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-  100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-  <p>hey,</p>
-
-  <p>i didn’t really know how to say this</p>
-  <p>so i just made this instead</p>
-
-  <p>i miss you</p>
-  <p>not in a loud way</p>
-  <p>just in the quiet moments</p>
-
-  <p>like when something happens</p>
-  <p>and you’re still the first person i think of</p>
-
-  <p>things feel different now</p>
-  <p>and yeah… i notice it</p>
-
-  <p>but i still care about you</p>
-  <p>more than i show sometimes</p>
-
-  <p>i just want us to feel okay again</p>
-  <p>even if it’s just slowly</p>
-
-  <p>that’s all</p>
-</div>
-
-<script>
-// generate floating hearts
-for (let i = 0; i < 25; i++) {
-  let heart = document.createElement("div");
-  heart.className = "heart";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-  document.body.appendChild(heart);
-}
-</script>
-
-</body>
-</html>
+speed(1000)
+bgcolor('black')
+for i in range(6000):
+    goto(heart(i)*20,heart1(i)*20)
+    for j in range(5):
+        color('pink')
+done()
